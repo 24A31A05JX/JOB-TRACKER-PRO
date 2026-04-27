@@ -118,13 +118,4 @@ npm install
 npm run dev
 ```
 
----
 
-## 🔒 Security & Credentials
-> **IMPORTANT:** NO `.env` or credential files are ever pushed to this repository. All `.env`, `auth.json`, and `.firebase/` generated structures are strictly guarded via the root `.gitignore`.
-
-<br />
-
-<div align="center">
-  <p>Built with ❤️ for a better hiring process.</p>
-</div>
