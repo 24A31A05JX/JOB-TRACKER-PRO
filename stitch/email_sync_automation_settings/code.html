@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integrations - TrackIt Job Tracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-size: 24px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 bg-background-dark border-r border-slate-800 hidden md:flex flex-col">
+<div class="p-6 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-10">
+<div class="bg-primary rounded-lg p-2 text-white">
+<span class="material-symbols-outlined">track_changes</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-lg font-bold leading-none">TrackIt</h1>
+<p class="text-primary text-xs font-medium uppercase tracking-wider">Pro Plan</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 grow">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Applications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-sm font-medium">Job Board</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary text-white" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="text-sm font-medium">Integrations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:bg-white/5 transition-colors mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-8 pt-6 border-t border-slate-800">
+<div class="flex items-center gap-3">
+<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeE4CpkO_InogUZ5YwHQPuDtIHNUSuc4X6jS8CzKsYdTtfH9ijt0G37gJHKGdH5BAdeE_vjnKemUjZ-jIgCrbP2d8fcr68lfA1XrRe1mHdPfieNfGwWai4yFK-rc-nCsSoVa5qhj-x1YQVnEI-edzxbDRFed8Stjnci23TjQ3xZAftoD0xnqD5XwFga7bZghXQfozu-AmG7PKbVrOyuqKZDgsKFCu73tZj8disqeey83PVeABqgCyC6kJn9pnH8X7zU5vDbqUZI-ON"/>
+<div class="flex flex-col overflow-hidden">
+<p class="text-white text-sm font-semibold truncate">Alex Chen</p>
+<p class="text-slate-500 text-xs truncate">alex@example.com</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 bg-white dark:bg-background-dark/50">
+<div class="flex items-center gap-2">
+<span class="text-slate-400 text-sm">Settings</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-white text-sm font-semibold">Integrations</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold">
+                        Add New Integration
+                    </button>
+</div>
+</header>
+<!-- Content Container -->
+<div class="flex-1 overflow-y-auto p-8 max-w-5xl mx-auto w-full">
+<!-- Page Title & Description -->
+<div class="mb-8">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Integrations</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Connect your tools to automate your job search and stay organized.</p>
+</div>
+<!-- Tabs Navigation -->
+<div class="border-b border-slate-200 dark:border-slate-800 mb-8">
+<nav class="flex gap-8">
+<a class="pb-4 border-b-2 border-primary text-primary font-bold text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+                            Email Sync
+                        </a>
+<a class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 font-medium text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            Calendar
+                        </a>
+<a class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 font-medium text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">extension</span>
+                            Browser Extension
+                        </a>
+</nav>
+</div>
+<!-- Integration Content -->
+<div class="space-y-8">
+<!-- Connection Card -->
+<section>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Connection Status</h3>
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-3xl">alternate_email</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-slate-900"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="text-xl font-bold text-slate-900 dark:text-white">Gmail / Outlook</h4>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                                Connected
+                                            </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Syncing inbox for job-related correspondence.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 md:flex-none px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-lg">sync</span>
+                                        Force Sync
+                                    </button>
+<button class="flex-1 md:flex-none px-4 py-2 bg-primary/10 text-primary border border-primary/20 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-lg">link_off</span>
+                                        Disconnect
+                                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Automation Settings -->
+<section>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Automation Settings</h3>
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl divide-y divide-slate-100 dark:divide-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 flex items-center justify-between gap-4">
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-bold">Automatically Detect Application Emails</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">TrackIt scans your inbox for confirmation emails from job boards and ATS systems to auto-update your dashboard.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="p-6 flex items-center justify-between gap-4">
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-bold">Smart Filter (Strict Mode)</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Only sync emails that match companies already in your application list.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Activity Log Section -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Automation Activity Log</h3>
+<button class="text-primary text-sm font-bold hover:underline">View All History</button>
+</div>
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 mt-1">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Status updated to <span class="text-primary px-1.5 py-0.5 bg-primary/10 rounded">Applied</span> for [Google]</p>
+<span class="text-xs text-slate-400 whitespace-nowrap">2m ago</span>
+</div>
+<p class="text-xs text-slate-500 mt-1 italic">Based on email detection: "Thank you for applying to Google..."</p>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="absolute left-4 top-8 bottom-[-24px] w-px bg-slate-200 dark:border-slate-800"></div>
+<div class="flex-shrink-0">
+<div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400 text-sm">mark_email_read</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-sm text-slate-700 dark:text-slate-300">New interview request detected for <span class="font-bold">Stripe</span></p>
+<span class="text-xs text-slate-400 whitespace-nowrap">4h ago</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0">
+<div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400 text-sm">schedule</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-sm text-slate-700 dark:text-slate-300">Scheduled daily inbox scan complete</p>
+<span class="text-xs text-slate-400 whitespace-nowrap">8h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Banner -->
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-6 flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div>
+<p class="text-slate-900 dark:text-white font-bold text-sm">Your privacy is our priority</p>
+<p class="text-slate-600 dark:text-slate-400 text-xs mt-1">TrackIt only reads emails related to job applications. We use OAuth 2.0 to securely access your data without ever seeing your password. You can revoke access at any time.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

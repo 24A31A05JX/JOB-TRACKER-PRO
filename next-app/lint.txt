@@ -1,0 +1,250 @@
+﻿
+> next-app@0.1.0 lint
+> eslint
+
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\actions\aiActions.ts
+   69:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  109:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  146:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  171:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  218:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  238:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  250:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\actions\jobActions.ts
+    5:80  warning  'orderBy' is defined but never used              @typescript-eslint/no-unused-vars
+   22:9   error    'host' is never reassigned. Use 'const' instead  prefer-const
+   25:12  warning  'error' is defined but never used                @typescript-eslint/no-unused-vars
+   44:31  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   44:70  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   55:16  warning  'qErr' is defined but never used                 @typescript-eslint/no-unused-vars
+   55:22  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   80:19  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   80:27  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   98:12  warning  'error' is defined but never used                @typescript-eslint/no-unused-vars
+  112:12  warning  'error' is defined but never used                @typescript-eslint/no-unused-vars
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\analytics\page.tsx
+   2:38  warning  'useMemo' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+   5:30  warning  'RadialBarChart' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+   5:46  warning  'RadialBar' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+   5:57  warning  'PolarAngleAxis' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  37:51  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\analytics\page.tsx:37:51
+  35 |   const ghosted = jobs.filter(j => {
+  36 |     if (j.status !== 'Applied') return false;
+> 37 |     const appliedDate = new Date(j.appliedDate || Date.now());
+     |                                                   ^^^^^^^^^^ Cannot call impure function
+  38 |     const diffTime = Math.abs(now.getTime() - appliedDate.getTime());
+  39 |     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  40 |     return diffDays > 30;  react-hooks/purity
+  74:14  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\dashboard\page.tsx
+    4:41  warning  'Calendar' is defined but never used                        @typescript-eslint/no-unused-vars
+    4:51  warning  'X' is defined but never used                               @typescript-eslint/no-unused-vars
+    4:54  warning  'Loader2' is defined but never used                         @typescript-eslint/no-unused-vars
+   27:10  warning  'pendingDragTargetCol' is assigned a value but never used   @typescript-eslint/no-unused-vars
+   28:10  warning  'isScheduleModalOpen' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   30:10  warning  'isSavingSchedule' is assigned a value but never used       @typescript-eslint/no-unused-vars
+   71:9   warning  'handleConfirmSchedule' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   81:9   warning  'handleSkipSchedule' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  224:70  error    Unexpected any. Specify a different type                    @typescript-eslint/no-explicit-any
+  227:39  error    Unexpected any. Specify a different type                    @typescript-eslint/no-explicit-any
+  248:25  error    Unexpected any. Specify a different type                    @typescript-eslint/no-explicit-any
+  261:68  error    Unexpected any. Specify a different type                    @typescript-eslint/no-explicit-any
+  279:65  error    Unexpected any. Specify a different type                    @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\interviews\page.tsx
+   7:97  warning  'Briefcase' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  38:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\interviews\page.tsx:38:5
+  36 |       fetchJobs(user.uid, user.email || undefined);
+  37 |     }
+> 38 |     setIsMounted(true);
+     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  39 |   }, [fetchJobs, user?.uid, user?.email]);
+  40 |
+  41 |   if (!isMounted) return null;  react-hooks/set-state-in-effect
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\interviews\prep\page.tsx
+   3:20  warning  'useEffect' is defined but never used                @typescript-eslint/no-unused-vars
+  19:46  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  25:50  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  50:14  warning  'err' is defined but never used                      @typescript-eslint/no-unused-vars
+  64:9   error    'newEvals' is never reassigned. Use 'const' instead  prefer-const
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\interviews\voice-bot\page.tsx
+   3:20  warning  'useEffect' is defined but never used             @typescript-eslint/no-unused-vars
+  11:24  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  12:30  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  30:33  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  32:9   warning  'selectedJob' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  57:36  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  84:10  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\profile\page.tsx
+  30:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\resume-tailor\page.tsx
+   4:20  warning  'TrendingUp' is defined but never used    @typescript-eslint/no-unused-vars
+   4:32  warning  'PlusCircle' is defined but never used    @typescript-eslint/no-unused-vars
+  39:19  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  60:14  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  78:25  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  79:14  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\(main)\settings\page.tsx
+   4:67  warning  'Key' is defined but never used           @typescript-eslint/no-unused-vars
+  34:18  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  65:19  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\api\clip-job\route.ts
+  39:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\api\sync-emails\route.ts
+   44:9   error  'log' is never reassigned. Use 'const' instead  prefer-const
+   87:45  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  106:19  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\forgot-password\page.tsx
+  23:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\layout.tsx
+  33:9  warning  Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+  34:9  warning  Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\login\page.tsx
+  31:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  69:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\page.tsx
+  4:75  warning  'Calendar' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\app\signup\page.tsx
+  11:10  warning  'name' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  11:16  warning  'setName' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  31:19  error    Unexpected any. Specify a different type      @typescript-eslint/no-explicit-any
+  56:19  error    Unexpected any. Specify a different type      @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\AddJobModal.tsx
+  44:29  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  58:14  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\CommandPalette.tsx
+  7:66  warning  'Settings' is defined but never used  @typescript-eslint/no-unused-vars
+  7:76  warning  'Bot' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\CompanyLogo.tsx
+  30:5  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\JobDetailDrawer.tsx
+   11:60  warning  'jobId' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  133:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\Sidebar.tsx
+   53:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @next/next/no-img-element
+  104:10  error    Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\Sidebar.tsx:104:10
+  102 |           <NavLinks onNav={() => setMobileOpen(false)} />
+  103 |         </nav>
+> 104 |         <UserCard />
+      |          ^^^^^^^^ This component is created during render
+  105 |       </aside>
+  106 |
+  107 |       {/* Desktop Sidebar */}
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\Sidebar.tsx:49:20
+  47 |   const [mobileOpen, setMobileOpen] = useState(false);
+  48 |
+> 49 |   const UserCard = () => (
+     |                    ^^^^^^^
+> 50 |     <div className="p-4 border-t border-slate-100 pb-8 flex flex-col gap-4">
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |       <Link href="/profile" className="flex items-center gap-3 p-2 bg-slate-50 rounded-xl hover:bg-indigo-50 hover:border-indigo-100 border border-transparent transition group">
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 70 |     </div>
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 71 |   );
+     | ^^^^ The component is created during render here
+  72 |
+  73 |   return (
+  74 |     <>  react-hooks/static-components
+  118:10  error    Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\Sidebar.tsx:118:10
+  116 |           <NavLinks />
+  117 |         </nav>
+> 118 |         <UserCard />
+      |          ^^^^^^^^ This component is created during render
+  119 |       </aside>
+  120 |     </>
+  121 |   );
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\components\Sidebar.tsx:49:20
+  47 |   const [mobileOpen, setMobileOpen] = useState(false);
+  48 |
+> 49 |   const UserCard = () => (
+     |                    ^^^^^^^
+> 50 |     <div className="p-4 border-t border-slate-100 pb-8 flex flex-col gap-4">
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |       <Link href="/profile" className="flex items-center gap-3 p-2 bg-slate-50 rounded-xl hover:bg-indigo-50 hover:border-indigo-100 border border-transparent transition group">
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 70 |     </div>
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 71 |   );
+     | ^^^^ The component is created during render here
+  72 |
+  73 |   return (
+  74 |     <>                                                      react-hooks/static-components
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\lib\auth-mock.ts
+  1:43  warning  'args' is defined but never used          @typescript-eslint/no-unused-vars
+  1:49  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\lib\queue.ts
+  10:30  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  15:34  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\store\useAppStore.ts
+   62:68  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   79:14  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  104:41  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  104:86  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:14  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  135:14  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  153:14  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\src\workers\notificationWorker.ts
+  15:11  warning  'jobId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  31:34  error    Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\test-gemini.js
+  1:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:32  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\uma maheswari\Downloads\stitch\next-app\test-prisma.js
+  1:22  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Γ£û 102 problems (54 errors, 48 warnings)
+  3 errors and 0 warnings potentially fixable with the `--fix` option.
+

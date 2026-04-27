@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum JobStatus {
+  WISHLIST
+  APPLIED
+  INTERVIEW
+  OFFER
+  REJECTED
+}
+
+model Job {
+  id            String    @id @default(uuid())
+  companyName   String
+  jobTitle      String
+  status        JobStatus @default(WISHLIST)
+  location      String?
+  salary        String?
+  jobUrl        String?
+  logoUrl       String?
+  notes         String?
+  resumeId      String?   // FK to Resume vault
+  resume        Resume?   @relation(fields: [resumeId], references: [id], onDelete: SetNull)
+  interviewDate DateTime?
+  
+  appliedDate   DateTime  @default(now())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    
+  
+  interviews    Interview[]
+
+  @@index([userId])
+  @@index([resumeId])
+}
+
+model Interview {
+  id              String   @id @default(uuid())
+  jobId           String
+  job             Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  userId          String   // For security/filtering checks
+  
+  type            String   // "Technical", "HR", "System Design"
+  interviewDate   DateTime 
+  meetingLink     String?  
+  
+  prepNotes       String?  
+  questionsToAsk  String?  
+  interviewers    String?  
+  
+  rating          Int?     
+  status          String   @default("UPCOMING") // UPCOMING, COMPLETED
+  actualQuestions String?  // Real questions asked in the round
+  followUpSent    Boolean  @default(false)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([jobId])
+  @@index([userId])
+}
+model Resume {
+  id          String   @id @default(uuid())
+  userId      String
+  fileName    String   // Original file name, e.g. "John_Resume_2026.pdf"
+  fileUrl     String   // Public URL from Supabase Storage
+  fileSize    Int?     // in bytes
+  mimeType    String?  // "application/pdf" etc.
+  label       String?  // User-friendly label e.g. "Frontend Tailored"
+  uploadedAt  DateTime @default(now())
+  
+  jobs        Job[]    // Jobs this resume was linked to
+  
+  @@index([userId])
+}

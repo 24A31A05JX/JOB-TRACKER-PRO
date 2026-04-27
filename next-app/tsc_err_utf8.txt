@@ -1,0 +1,2 @@
+﻿src/actions/aiActions.ts(176,26): error TS2307: Cannot find module 'cheerio' or its corresponding type declarations.
+src/components/AddInterviewModal.tsx(24,11): error TS2339: Property 'addInterview' does not exist on type 'AppState'.

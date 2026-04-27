@@ -1,0 +1,6 @@
+﻿.next/types/validator.ts(161,39): error TS2307: Cannot find module '../../src/app/api/auth/[...nextauth]/route.js' or its corresponding type declarations.
+.next/types/validator.ts(170,39): error TS2307: Cannot find module '../../src/app/api/auth/register/route.js' or its corresponding type declarations.
+src/app/(main)/profile/page.tsx(3,28): error TS2307: Cannot find module 'next-auth/react' or its corresponding type declarations.
+src/app/api/sync-emails/route.ts(92,28): error TS2339: Property 'status' does not exist on type '{ id: string; }'.
+src/app/api/sync-emails/route.ts(94,51): error TS2339: Property 'companyName' does not exist on type '{ id: string; }'.
+src/workers/notificationWorker.ts(3,20): error TS2307: Cannot find module 'dotenv' or its corresponding type declarations.

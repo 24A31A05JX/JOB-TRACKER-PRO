@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .browser-shadow { box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .extension-shadow { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body class="bg-slate-200 dark:bg-slate-900 min-h-screen flex items-center justify-center p-8">
+<!-- Browser Window Container -->
+<div class="w-full max-w-6xl aspect-[16/10] bg-background-light dark:bg-background-dark rounded-xl overflow-hidden flex flex-col browser-shadow relative">
+<!-- Browser Toolbar -->
+<div class="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-4 py-2 flex items-center gap-4">
+<div class="flex gap-1.5">
+<div class="w-3.5 h-3.5 rounded-full bg-red-400"></div>
+<div class="w-3.5 h-3.5 rounded-full bg-amber-400"></div>
+<div class="w-3.5 h-3.5 rounded-full bg-green-400"></div>
+</div>
+<div class="flex-1 flex items-center bg-white dark:bg-slate-900 rounded-lg px-3 py-1.5 border border-slate-200 dark:border-slate-700 text-sm text-slate-500">
+<span class="material-symbols-outlined text-sm mr-2">lock</span>
+                linkedin.com/jobs/view/3920194...
+            </div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">extension</span>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs">JD</div>
+</div>
+</div>
+<!-- Webpage Content (LinkedIn Mockup) -->
+<div class="flex-1 overflow-y-auto flex">
+<!-- Sidebar -->
+<div class="w-64 border-r border-slate-200 dark:border-slate-800 p-6 hidden lg:block">
+<div class="h-4 w-32 bg-slate-200 dark:bg-slate-800 rounded mb-6"></div>
+<div class="space-y-4">
+<div class="h-3 w-48 bg-slate-100 dark:bg-slate-800 rounded"></div>
+<div class="h-3 w-40 bg-slate-100 dark:bg-slate-800 rounded"></div>
+<div class="h-3 w-44 bg-slate-100 dark:bg-slate-800 rounded"></div>
+</div>
+</div>
+<!-- Main Job View -->
+<div class="flex-1 p-8 bg-white dark:bg-background-dark/50">
+<div class="max-w-3xl mx-auto">
+<div class="flex items-start gap-6 mb-8">
+<div class="w-16 h-16 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-3xl text-slate-400">corporate_fare</span>
+</div>
+<div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Senior Product Designer</h1>
+<p class="text-xl text-slate-600 dark:text-slate-400">Google • Mountain View, CA (Hybrid)</p>
+<div class="flex gap-2 mt-4">
+<button class="bg-[#0a66c2] text-white px-6 py-2 rounded-full font-bold">Apply</button>
+<button class="border border-[#0a66c2] text-[#0a66c2] px-6 py-2 rounded-full font-bold">Save</button>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="h-4 w-full bg-slate-100 dark:bg-slate-800 rounded"></div>
+<div class="h-4 w-5/6 bg-slate-100 dark:bg-slate-800 rounded"></div>
+<div class="h-4 w-4/6 bg-slate-100 dark:bg-slate-800 rounded"></div>
+<div class="pt-8 h-64 w-full border border-slate-100 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/30"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Extension Popup Overlay -->
+<div class="absolute top-14 right-6 w-80 bg-background-light dark:bg-background-dark rounded-xl extension-shadow border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col z-50">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-4 py-3 bg-slate-50 dark:bg-slate-800/50">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined fill-1">rocket_launch</span>
+<h2 class="text-slate-900 dark:text-white text-sm font-bold leading-tight font-display">Job Tracker</h2>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500 transition-colors">
+<span class="material-symbols-outlined text-lg">settings</span>
+</button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-4 space-y-4">
+<h3 class="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider opacity-60">Scraped Details</h3>
+<!-- Job Title Card -->
+<div class="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 group hover:border-primary/50 transition-colors">
+<div class="text-primary bg-primary/10 flex items-center justify-center rounded-lg size-10 shrink-0">
+<span class="material-symbols-outlined text-xl">work</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-medium uppercase tracking-tighter">Job Title</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-semibold truncate">Senior Product Designer</p>
+</div>
+<button class="text-slate-300 dark:text-slate-600 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+<!-- Company Card -->
+<div class="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 group hover:border-primary/50 transition-colors">
+<div class="text-primary bg-primary/10 flex items-center justify-center rounded-lg size-10 shrink-0">
+<span class="material-symbols-outlined text-xl">corporate_fare</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-medium uppercase tracking-tighter">Company</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-semibold truncate">Google</p>
+</div>
+<button class="text-slate-300 dark:text-slate-600 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+<!-- Location Card -->
+<div class="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 group hover:border-primary/50 transition-colors">
+<div class="text-primary bg-primary/10 flex items-center justify-center rounded-lg size-10 shrink-0">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-medium uppercase tracking-tighter">Location</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-semibold truncate">Mountain View, CA</p>
+</div>
+<button class="text-slate-300 dark:text-slate-600 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+<!-- Dropdown -->
+<div class="space-y-1.5 pt-2">
+<label class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase ml-1">Move to Column</label>
+<div class="relative">
+<select class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-900 dark:text-slate-100 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
+<option selected="">Wishlist</option>
+<option>Applied</option>
+<option>Interviewing</option>
+<option>Offer</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<footer class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/30">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20 active:scale-[0.98]">
+<span class="material-symbols-outlined">bookmark_add</span>
+<span>Clip to Tracker</span>
+</button>
+<p class="text-center text-[10px] text-slate-400 mt-3 font-medium">Saved 12 jobs this week</p>
+</footer>
+</div>
+<!-- Optional Bottom Indicator -->
+<div class="h-6 bg-slate-100 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 flex items-center justify-center">
+<div class="w-32 h-1 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
+</div>
+</div>
+</body></html>

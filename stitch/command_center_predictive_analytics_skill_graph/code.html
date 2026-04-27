@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Command Center - Analytics Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 91, 19, 0.1);
+        }
+        .dark .glass-panel {
+            background: rgba(34, 22, 16, 0.6);
+            border: 1px solid rgba(236, 91, 19, 0.2);
+        }
+        .node-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Command Center</h2>
+</div>
+<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+<div class="text-slate-400 dark:text-slate-500 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-0 h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 rounded-r-xl pl-2 text-sm font-normal" placeholder="Search analytics..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-6 md:gap-8">
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-primary text-sm font-semibold leading-normal" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Skills</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Insights</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User professional profile portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrd3Mk0-lVdgvS8H0-alFa5iVkD4khkmoDbpC2cutOFWB_TZi5Arv3afu7zXjqRXCedl92JHqKtNHr5j_mWjsr-yE6PG2lydoPDPmVaPJejHIuU1DT0IkRjVtnX1n6IxR3RrbXC6Lv48dDwnqRYHHgYXeusK11US1LHOi9Jp9sk3FkyWoveJhXV9haIWUBLPPx_ib_wVz_D_WBqBl9RbEELzo2leIFeofSf3IfauOT_mBQj3pVkIkClxpfNKFUzBSSA8LX57qkgM_z");'></div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar -->
+<aside class="hidden md:flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 p-4 gap-6 bg-background-light dark:bg-background-dark">
+<div class="flex flex-col gap-1 px-2">
+<h1 class="text-slate-900 dark:text-white text-base font-bold">Analytics Pro</h1>
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-primary"></span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Premium Plan</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-semibold">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="text-sm font-bold">Skill Matrix</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-semibold">Job Tracker</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-semibold">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-sm font-semibold">AI Coach</span>
+</a>
+</nav>
+<div class="mt-auto p-4 rounded-2xl bg-gradient-to-br from-primary to-orange-600 text-white shadow-lg shadow-primary/20">
+<p class="text-xs font-medium opacity-80 mb-1">Weekly Summary</p>
+<p class="text-lg font-bold mb-3">12 Applications</p>
+<button class="w-full py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-lg text-xs font-bold transition-all">
+                        View Detailed Report
+                    </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col lg:flex-row overflow-hidden bg-slate-50 dark:bg-[#1a110c]">
+<!-- Center: Skill Gap Matrix -->
+<section class="flex-1 flex flex-col p-4 md:p-6 overflow-y-auto">
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<div>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">Skill Gap Matrix</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Tech stack coverage vs. market demand (Real-time)</p>
+</div>
+<div class="flex gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold">
+<span class="size-2 bg-emerald-500 rounded-full"></span> Stack Ready
+                            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold">
+<span class="size-2 bg-amber-500 rounded-full"></span> Gap Identified
+                            </span>
+</div>
+</div>
+<!-- 3D Node Map Placeholder UI -->
+<div class="relative flex-1 min-h-[500px] glass-panel rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center">
+<!-- Abstract Node Background -->
+<div class="absolute inset-0 opacity-40 dark:opacity-20 pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-px h-64 bg-slate-300 dark:bg-slate-600 rotate-45"></div>
+<div class="absolute top-1/3 left-1/2 w-px h-48 bg-slate-300 dark:bg-slate-600 -rotate-12"></div>
+<div class="absolute bottom-1/4 right-1/4 w-px h-72 bg-slate-300 dark:bg-slate-600 80deg"></div>
+</div>
+<!-- Skill Nodes -->
+<div class="relative z-10 w-full h-full flex items-center justify-center">
+<!-- Core Node -->
+<div class="absolute p-6 rounded-full bg-primary/20 border-2 border-primary flex flex-col items-center justify-center shadow-[0_0_50px_rgba(236,91,19,0.3)]">
+<span class="text-primary font-black text-xl">YOU</span>
+<span class="text-[10px] uppercase font-bold text-primary/80">Fullstack</span>
+</div>
+<!-- User Skills (Green/Primary) -->
+<div class="absolute translate-x-[-120px] translate-y-[-140px] glass-panel p-3 rounded-2xl border-emerald-500/30 shadow-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm">check_circle</span>
+<span class="font-bold text-xs text-slate-800 dark:text-slate-200">React.js</span>
+</div>
+</div>
+<div class="absolute translate-x-[140px] translate-y-[-80px] glass-panel p-3 rounded-2xl border-emerald-500/30 shadow-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm">check_circle</span>
+<span class="font-bold text-xs text-slate-800 dark:text-slate-200">TailwindCSS</span>
+</div>
+</div>
+<div class="absolute translate-x-[-160px] translate-y-[100px] glass-panel p-3 rounded-2xl border-emerald-500/30 shadow-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm">check_circle</span>
+<span class="font-bold text-xs text-slate-800 dark:text-slate-200">TypeScript</span>
+</div>
+</div>
+<!-- Missing Skills (Amber/Gap) -->
+<div class="absolute translate-x-[180px] translate-y-[60px] glass-panel p-4 rounded-2xl border-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-amber-500 node-pulse">warning</span>
+<span class="font-black text-sm text-slate-900 dark:text-white">Java Spring Boot</span>
+<span class="text-[10px] font-bold text-amber-600 uppercase">Found in 85% of Apps</span>
+</div>
+</div>
+<div class="absolute translate-x-[-40px] translate-y-[200px] glass-panel p-3 rounded-2xl border-amber-500/50 shadow-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-sm">add_circle</span>
+<span class="font-bold text-xs text-slate-800 dark:text-slate-200">AWS Lambda</span>
+</div>
+</div>
+<div class="absolute translate-x-[220px] translate-y-[-180px] glass-panel p-3 rounded-2xl border-amber-500/50 shadow-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-sm">add_circle</span>
+<span class="font-bold text-xs text-slate-800 dark:text-slate-200">GraphQL</span>
+</div>
+</div>
+</div>
+<!-- Graph Controls -->
+<div class="absolute bottom-6 right-6 flex gap-2">
+<button class="glass-panel p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="glass-panel p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">3d_rotation</span>
+</button>
+</div>
+</div>
+<!-- Bottom Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+<div class="glass-panel p-4 rounded-2xl">
+<p class="text-xs font-bold text-slate-500 uppercase">Stack Coverage</p>
+<div class="flex items-end gap-2 mt-1">
+<span class="text-2xl font-black text-primary">74%</span>
+<span class="text-xs text-emerald-500 font-bold mb-1">+5% vs last month</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-2xl">
+<p class="text-xs font-bold text-slate-500 uppercase">Market Velocity</p>
+<div class="flex items-end gap-2 mt-1">
+<span class="text-2xl font-black text-slate-900 dark:text-white">High</span>
+<span class="text-xs text-primary font-bold mb-1">Top 5% candidate</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-2xl">
+<p class="text-xs font-bold text-slate-500 uppercase">Interview Pipeline</p>
+<div class="flex items-end gap-2 mt-1">
+<span class="text-2xl font-black text-slate-900 dark:text-white">4</span>
+<span class="text-xs text-slate-400 font-bold mb-1">Active stages</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar: Predictive Insights -->
+<section class="w-full lg:w-96 border-l border-slate-200 dark:border-slate-800 p-4 md:p-6 flex flex-col gap-6 bg-slate-100/50 dark:bg-black/20 overflow-y-auto">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">insights</span>
+                        Predictive Insights
+                    </h3>
+<!-- Radar Chart Radar Panel -->
+<div class="glass-panel p-6 rounded-3xl">
+<div class="flex justify-between items-center mb-6">
+<p class="text-sm font-bold text-slate-700 dark:text-slate-300">Competitiveness Radar</p>
+<span class="material-symbols-outlined text-slate-400 text-lg">info</span>
+</div>
+<!-- Radar Chart Visualization Mock -->
+<div class="relative aspect-square flex items-center justify-center">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-full h-full border border-slate-300 dark:border-slate-700 rounded-full"></div>
+<div class="absolute w-[75%] h-[75%] border border-slate-300 dark:border-slate-700 rounded-full"></div>
+<div class="absolute w-[50%] h-[50%] border border-slate-300 dark:border-slate-700 rounded-full"></div>
+<div class="absolute w-[25%] h-[25%] border border-slate-300 dark:border-slate-700 rounded-full"></div>
+</div>
+<!-- Data Polygon Market Demand -->
+<svg class="absolute inset-0 w-full h-full transform -rotate-18" viewbox="0 0 100 100">
+<polygon fill="rgba(236, 91, 19, 0.1)" points="50,5 95,40 75,90 25,90 5,40" stroke="#ec5b13" stroke-width="0.5"></polygon>
+<!-- User Skill Set -->
+<polygon fill="rgba(16, 185, 129, 0.2)" points="50,25 75,45 65,70 35,65 20,45" stroke="#10b981" stroke-dasharray="2 1" stroke-width="1.5"></polygon>
+</svg>
+<!-- Labels -->
+<span class="absolute top-0 text-[10px] font-bold uppercase text-slate-500">Frontend</span>
+<span class="absolute right-0 text-[10px] font-bold uppercase text-slate-500">Backend</span>
+<span class="absolute bottom-0 text-[10px] font-bold uppercase text-slate-500">Cloud</span>
+<span class="absolute left-0 text-[10px] font-bold uppercase text-slate-500">Soft Skills</span>
+</div>
+<div class="flex justify-center gap-4 mt-6">
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold text-slate-500">Market</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-[10px] font-bold text-slate-500">You</span>
+</div>
+</div>
+</div>
+<!-- AI Suggestion Card -->
+<div class="bg-gradient-to-br from-[#221610] to-[#3a2016] p-5 rounded-3xl border border-primary/30 relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-all"></div>
+<div class="flex gap-4 relative z-10">
+<div class="size-10 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm mb-2">AI Optimization Strategy</h4>
+<p class="text-slate-300 text-xs leading-relaxed">
+<span class="text-primary font-bold uppercase text-[10px] block mb-1 tracking-widest">Urgent Suggestion</span>
+                                    "High Probability of Interview if you add <span class="text-white font-bold underline decoration-primary underline-offset-2">Java Spring Boot</span> to your resume based on your recent applications."
+                                </p>
+<div class="mt-4 flex gap-2">
+<button class="px-3 py-1.5 bg-primary text-white text-[10px] font-bold rounded-lg hover:bg-orange-600 transition-colors">
+                                        Update Resume
+                                    </button>
+<button class="px-3 py-1.5 bg-white/5 text-white text-[10px] font-bold rounded-lg hover:bg-white/10 transition-colors">
+                                        View Jobs
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Hiring Trends -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Hiring Trends</p>
+<a class="text-primary text-[10px] font-bold hover:underline" href="#">View All</a>
+</div>
+<div class="glass-panel p-3 rounded-xl flex items-center justify-between group cursor-pointer hover:border-primary/50 transition-all">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500 text-sm">trending_up</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">Next.js 14</p>
+<p class="text-[10px] text-slate-500">In demand +24%</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-sm">chevron_right</span>
+</div>
+<div class="glass-panel p-3 rounded-xl flex items-center justify-between group cursor-pointer hover:border-primary/50 transition-all">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500 text-sm">trending_up</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">Kubernetes</p>
+<p class="text-[10px] text-slate-500">In demand +12%</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-sm">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JobHunt Pro - Interviews Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-white dark:bg-background-dark border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary size-10 rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-none">JobHunt Pro</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider font-semibold">Professional Plan</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">work_outline</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined font-fill">calendar_today</span>
+<span class="text-sm font-bold">Interviews</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-sm font-medium">Messages</span>
+<span class="ml-auto bg-primary text-white text-[10px] px-1.5 py-0.5 rounded-full">4</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<div class="mt-4 p-3 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-300 dark:bg-slate-700" data-alt="User avatar profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrcZeo4zGgQQiygTWA9Od6eEXLmoopwVruuE4aCjFg9q4E0whjr2z03My1J_-LGn3qisTBxI-TIukBjnSmWINeggwl9BetISxcZmYnhzJp64HWX9HF9PD_GtEvyHnk7iezW-5gxGDYCBrxuWF0k06-HQBFGzB2xX3T2M-He9MfOQtGaAsPnGVwkejvPpKf9eZGuhFnlYySRMpoTohLwXftUzAk-2KG0SLFFqjx1sUHURo10J3xtbhzMamfbYDUuHoLUH9Ck15F3nmH')"></div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Alex Morgan</p>
+<p class="text-[10px] text-slate-500 truncate">alex@example.com</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-72 flex-1 p-8">
+<!-- Header -->
+<header class="flex justify-between items-center mb-10">
+<div>
+<h2 class="text-3xl font-black tracking-tight">Interviews</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Manage your upcoming schedules and preparation tasks.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-2 rounded-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary text-sm w-64" placeholder="Search events..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Schedule New
+                </button>
+</div>
+</header>
+<!-- Split Layout Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Side: Calendar Widget -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<div class="bg-white dark:bg-background-dark/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<h3 class="font-bold text-lg">October 2023</h3>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 text-center mb-4">
+<div class="text-xs font-bold text-slate-400 uppercase">Sun</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Mon</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Tue</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Wed</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Thu</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Fri</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Sat</div>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<!-- Placeholder Calendar Days -->
+<div class="aspect-square flex items-center justify-center text-sm text-slate-300">28</div>
+<div class="aspect-square flex items-center justify-center text-sm text-slate-300">29</div>
+<div class="aspect-square flex items-center justify-center text-sm text-slate-300">30</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">1</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">2</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">3</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">4</div>
+<!-- Today / Active Day -->
+<div class="aspect-square flex flex-col items-center justify-center text-sm font-bold bg-primary text-white rounded-xl shadow-md">
+                            5
+                            <span class="size-1 bg-white rounded-full mt-1"></span>
+</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium relative">
+                            6
+                            <span class="absolute bottom-2 size-1 bg-primary/40 rounded-full"></span>
+</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">7</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">8</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium relative">
+                            9
+                            <span class="absolute bottom-2 size-1 bg-primary/40 rounded-full"></span>
+</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">10</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">11</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium relative">
+                            12
+                            <span class="absolute bottom-2 size-1 bg-primary/40 rounded-full"></span>
+</div>
+<!-- Rest of the grid filling -->
+<div class="aspect-square flex items-center justify-center text-sm font-medium">13</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">14</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">15</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">16</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">17</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">18</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">19</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">20</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">21</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">22</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">23</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">24</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">25</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">26</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">27</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">28</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">29</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">30</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium">31</div>
+</div>
+</div>
+<div class="p-6 bg-primary/5 dark:bg-primary/10 rounded-xl border border-primary/20">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<div>
+<h4 class="font-bold text-sm">Pro Preparation Tip</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">Most candidates forget to research company culture. Use our AI tool to get a summary before your next call.</p>
+<button class="text-primary text-sm font-bold mt-2 hover:underline">Get summary</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Deadline Reminders -->
+<div class="col-span-12 lg:col-span-7 space-y-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-bold text-xl flex items-center gap-2">
+                        Deadline Reminders
+                        <span class="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full">4 Pending</span>
+</h3>
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span>Sort by:</span>
+<button class="font-bold text-slate-900 dark:text-white flex items-center">Time <span class="material-symbols-outlined text-sm">expand_more</span></button>
+</div>
+</div>
+<!-- Immediate Deadline - Amber Background -->
+<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/40 rounded-xl p-5 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-white dark:bg-slate-800 border border-amber-200 dark:border-amber-800 flex items-center justify-center overflow-hidden">
+<div class="size-full bg-cover bg-center" data-alt="Google company logo icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3BCed6a9BII-XODb5zgn9swHCII3Kwva-8GXCbIPYqUggD2Br4USs5VAv8U8ka7J1GkBOts5qB2qUxJagDbLEBue9aDlz5F9GFnDPjl8M38qBlNCMLRwg64jOwPUU1ZyqKS6xkg83BHXAiKegtNnLwXroYljkCEmMP7-u5Se4HvgGyg31o9ophfUGUvRP2LWtw0QgLokPt4X729jYcIzhOZTAigcqjAoRBnYvZlyzNDhD5ijxFQnPQXU6_5-kQySyWAhj97_wXEEd')"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Interview with Google</h4>
+<span class="bg-amber-100 dark:bg-amber-800/60 text-amber-700 dark:text-amber-300 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-tighter">Starts in 30m</span>
+</div>
+<p class="text-sm text-amber-800/70 dark:text-amber-400/70 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">schedule</span> Today, 2:30 PM • Video Call
+                            </p>
+</div>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-bold text-sm transition-all">
+                        Prepare
+                    </button>
+</div>
+<!-- Regular List Item 1 -->
+<div class="bg-white dark:bg-background-dark/50 border border-slate-200 dark:border-slate-800 rounded-xl p-5 flex items-center justify-between group hover:border-primary/30 transition-all shadow-sm">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-100 dark:border-slate-800">
+<div class="size-full bg-cover bg-center" data-alt="Stripe company logo icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMrsqRNi3LvTijOOhmg1EB55hSu2TpJmvTn0oWkp-lN75QmXHCGCvYcu5Zp2cGUB7nbkhOpe1l56Y0yFsyhZL-VaTHMVCkm9M-JxDPyL8soXatClKQ1x5_GeLqTR0WSypzQc1wniTRo1iFVvOURINyyOamNArJSsgpSWAe8f66rmTOJPD6xoWhWpn3zLX6RuN4fUn3PXKTqYqcAOOlLyDUttClHzLB3NTKyjZ1e6148B70W22zascIdozSDmbPwxkB_n1g8Fw_1_d_')"></div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Interview with Stripe</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-slate-400">calendar_today</span> Oct 12, 10:00 AM • Technical Screen
+                            </p>
+</div>
+</div>
+<button class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-lg font-bold text-sm transition-all border border-primary/20">
+                        Prepare
+                    </button>
+</div>
+<!-- Regular List Item 2 -->
+<div class="bg-white dark:bg-background-dark/50 border border-slate-200 dark:border-slate-800 rounded-xl p-5 flex items-center justify-between group hover:border-primary/30 transition-all shadow-sm">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-100 dark:border-slate-800">
+<div class="size-full bg-cover bg-center" data-alt="Airbnb company logo icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmzeGls1VOtr0Qmtj8FRue16mFMOk27wWiS-3mGGpUotqB7Kee04UzHxJkKxJxrLbsX3fJ1sZKNcIzTWDUaSxsWgGaUtiNd6_Ku3QYvi6WfjTyjIEZYPTpQHw2ylNSPGSClQaDTQ8LJ1WwKPJbTReS8xFPhh9KcyXfM7VM76xsNzQkNgfk03P7n6ODWZ0YtKV6phqpE7GcGIpvuQrEQ8feidw-WUvV_dBMYqJBvxCIAIaWRaNtaGEMr2nviE7J5LxMYmJ2oSnf7zoM')"></div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Interview with Airbnb</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-slate-400">calendar_today</span> Oct 15, 4:00 PM • Culture Fit
+                            </p>
+</div>
+</div>
+<button class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-lg font-bold text-sm transition-all border border-primary/20">
+                        Prepare
+                    </button>
+</div>
+<!-- Immediate Deadline - Amber Background -->
+<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/40 rounded-xl p-5 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-white dark:bg-slate-800 border border-amber-200 dark:border-amber-800 flex items-center justify-center overflow-hidden">
+<div class="size-full bg-cover bg-center" data-alt="Tesla company logo icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACg1MHly02Q4cB9J5BG4RqNeHjKuBLOTDUCV3KJ7PY7lMZ7DKPWCk8kwl0BuY_pCzSyOavjbx0RGguOSgp89xpnqYxI1XIqxhibtXGuXKaVd_EYbMpnTRIM3206FRehOb37XSnhf1Fp-gKna_7PhhUAjfpObuf2REbfZsbKIK3WSr6T05kerXrEP3U3hAJP7IQs8tFJX8yO06Djy7m-tup5Gx9sTGuPNbyQiMDqqzu2Jvs5b3pWd5wQRkwhh00HLZL-i0Ey_ceGVDR')"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Interview with Tesla</h4>
+<span class="bg-amber-100 dark:bg-amber-800/60 text-amber-700 dark:text-amber-300 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-tighter">Tomorrow</span>
+</div>
+<p class="text-sm text-amber-800/70 dark:text-amber-400/70 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">schedule</span> Oct 6, 9:00 AM • On-site Visit
+                            </p>
+</div>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-bold text-sm transition-all">
+                        Prepare
+                    </button>
+</div>
+<!-- Regular List Item 3 -->
+<div class="bg-white dark:bg-background-dark/50 border border-slate-200 dark:border-slate-800 rounded-xl p-5 flex items-center justify-between group hover:border-primary/30 transition-all shadow-sm">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-100 dark:border-slate-800">
+<div class="size-full bg-cover bg-center" data-alt="Notion company logo icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDd6k0jT6D5PW10H7WwwD4Iom2ip3pZIm7pSPvIyREPnBsOfl6hUxlIP94IIxB3mOr8klq_EuHM_EZvzrc8_WFz7FRoI9Zu7CCr29h0b1IYirxUriRUAfTCNo7-BRL-rIozxYdbsHotre49C_3NY_EBU1h4bYaH6SyU_RHjSkRoJwtzMktvPNdPFDNIw7YNsVsMRpF-oHuABvdkvV8-gqpE2ctQ67HwOxafnxvvflBVaVzjkUiFdjw0000FiBNP3iKyaVFYOjwj-r-6')"></div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Interview with Notion</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-slate-400">calendar_today</span> Oct 18, 11:30 AM • Hiring Manager Round
+                            </p>
+</div>
+</div>
+<button class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-lg font-bold text-sm transition-all border border-primary/20">
+                        Prepare
+                    </button>
+</div>
+<div class="pt-4 flex justify-center">
+<button class="text-slate-400 hover:text-primary transition-colors flex items-center gap-2 font-medium text-sm">
+                        Show more interviews
+                        <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer preparation stats -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl p-6 flex items-center gap-4">
+<div class="size-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase">Completed</p>
+<h5 class="text-2xl font-black">12</h5>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl p-6 flex items-center gap-4">
+<div class="size-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase">Preparation Score</p>
+<h5 class="text-2xl font-black">84%</h5>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl p-6 flex items-center gap-4">
+<div class="size-12 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase">Upcoming Rounds</p>
+<h5 class="text-2xl font-black">5</h5>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

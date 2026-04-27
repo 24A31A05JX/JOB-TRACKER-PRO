@@ -1,0 +1,6 @@
+/* content.css — Prevents host stylesheet from polluting our injected button */
+#jobtracker-clip-btn {
+  all: unset !important;
+  display: flex !important;
+  position: fixed !important;
+}
