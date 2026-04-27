@@ -4,6 +4,8 @@ import { doc, getDoc, collection, query, where, getDocs, updateDoc } from 'fireb
 import { google } from 'googleapis';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
   try {
     const { uid } = await req.json();
